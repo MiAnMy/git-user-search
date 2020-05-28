@@ -53,6 +53,7 @@ export default {
         .then((response) => {
           if (!response.ok) {
             this.profileLoading = false;
+            if (response.status === 404) this.profileName = "404";
             throw new Error(response.status);
           }
           return response.json();
